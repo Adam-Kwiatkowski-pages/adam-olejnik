@@ -1,15 +1,13 @@
 meta:
   title: Usługi koparką i transport materiałów sypkich - Adam Olejnik
-  description: Usługi koparką wywrotką piach żwir ziemia wynajem zagęszczarki roboty
-    ziemne - Pułtusk, Maków Mazowiecki i okolice.
-
+  description: Usługi koparką wywrotką piach żwir ziemia wynajem zagęszczarki
+    roboty ziemne - Pułtusk, Maków Mazowiecki i okolice.
 business:
   name: Adam Olejnik
   phone: 502 954 335
   area: Pułtusk, Maków Mazowiecki i okolice
   maps_url: https://maps.app.goo.gl/Dcn1R1evMLECPYns7
   olx_url: https://www.olx.pl/oferty/uzytkownik/250Tj
-
 nav:
   - label: Usługi
     href: "#uslugi"
@@ -21,18 +19,16 @@ nav:
     href: "#transport"
   - label: Kontakt
     href: "#kontakt"
-
 hero:
   image: /src/assets/images/hero-excavator.jpg
   image_alt: Koparka kołowa podczas pracy na placu budowy
-  heading: Usługi koparką i transport materiałów sypkich
+  heading: Test
   body: Profesjonalne usługi koparką kołową oraz transport wywrotką 3-osiową z
-    hydroburtą. Realizuję zlecenia dla firm i osób prywatnych - szybko, solidnie i
-    w konkurencyjnych cenach.
+    hydroburtą. Realizuję zlecenia dla firm i osób prywatnych - szybko, solidnie
+    i w konkurencyjnych cenach.
   cta_primary: Zadzwoń po wycenę
   cta_secondary: Zobacz usługi na OLX
   note: Szybkie terminy • Elastyczne godziny pracy
-
 services:
   eyebrow: Specjalizacje
   heading: Czym się zajmuję
@@ -51,12 +47,12 @@ services:
         podjazdy, ścieżki oraz zagęszczania gruntu i podsypki.
       image: /src/assets/images/leveller.jpg
       image_alt: Zagęszczarka płytowa do zagęszczania gruntu i kostki brukowej
-
 scope:
   eyebrow: Zakres usług
   heading: Kompleksowe prace ziemne
-  body: Od precyzyjnych wykopów pod fundamenty po przygotowanie terenu pod inwestycję
-    - wykonuję pełen zakres prac ziemnych dla firm i klientów indywidualnych.
+  body: Od precyzyjnych wykopów pod fundamenty po przygotowanie terenu pod
+    inwestycję - wykonuję pełen zakres prac ziemnych dla firm i klientów
+    indywidualnych.
   items:
     - Wykopy pod fundamenty, budynki, szamba, przyłącza wod.-kan., baseny
     - Kopanie stawów i oczek wodnych
@@ -66,7 +62,6 @@ scope:
     - Załadunek materiałów sypkich
     - Wywóz ziemi i gruzu z budowy
     - Przygotowanie terenu pod kostkę brukową, drogi dojazdowe i place
-
 equipment:
   eyebrow: Sprzęt
   heading: Koparka kołowa z 3 łyżkami
@@ -84,9 +79,8 @@ equipment:
       description: Idealna do fundamentów i przyłączy wod.-kan.
   callout:
     heading: Wynajem zagęszczarki 90 kg
-    body: Solidne zagęszczanie gruntu i kostki brukowej - dostępne do wynajęcia razem
-      z usługą lub osobno.
-
+    body: Solidne zagęszczanie gruntu i kostki brukowej - dostępne do wynajęcia
+      razem z usługą lub osobno.
 transport:
   image: /src/assets/images/dump-truck.jpg
   image_alt: Wywrotka 3-osiowa 6x6 z hydroburtą rozładowująca materiał sypki
@@ -107,11 +101,10 @@ transport:
     - Kamień
     - Piasek zasypowy
     - Pospółka
-
 contact:
   heading: Zadzwoń i zapytaj o wycenę
-  body: Szybkie terminy i elastyczne godziny pracy. Realizuję zlecenia dla firm i osób
-    prywatnych.
+  body: Szybkie terminy i elastyczne godziny pracy. Realizuję zlecenia dla firm i
+    osób prywatnych.
   area_heading: Obszar działania
   availability_heading: Dostępność
   availability: Szybkie terminy • Elastyczne godziny pracy
@@ -120,8 +113,7 @@ contact:
       embed_url: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9668.464874703177!2d21.0814079!3d52.7120475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471e934bd2da53a5%3A0x24bb463b418b5553!2sUs%C5%82ugi%20kopark%C4%85%20wywrotk%C4%85%20piach%20%C5%BCwir%20ziemia%20wynajem%20zag%C4%99szczarki%20roboty%20ziemne%20Adam%20Olejnik!5e0!3m2!1spl!2spl!4v1781295494015!5m2!1spl!2spl
     - title: Usługi koparką Adam Olejnik - Maków Mazowiecki
       embed_url: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27307.63610417074!2d21.05285133182075!3d52.774098808377765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471e8f5eabf71dff%3A0xcb7ce9faf53d79d4!2sUs%C5%82ugi%20koparka%20wywrotka%20piach%20%C5%BCwir%20kruszywo%20wynajem%20zag%C4%99szczarki%20ziemia%20roboty%20ziemne%20Adam%20Olejnik!5e0!3m2!1spl!2spl!4v1782071625402!5m2!1spl!2spl
-
 footer:
-  blurb: Usługi koparką wywrotką piach żwir ziemia wynajem zagęszczarki roboty ziemne
-    - Pułtusk, Maków Mazowiecki i okolice.
+  blurb: Usługi koparką wywrotką piach żwir ziemia wynajem zagęszczarki roboty
+    ziemne - Pułtusk, Maków Mazowiecki i okolice.
   copyright: Wszelkie prawa zastrzeżone.
