@@ -1,0 +1,37 @@
+name: Deploy
+
+# Uruchamia się przy każdej zmianie w repozytorium — także przy zapisie z Pages CMS.
+# Gałąź domyślna repozytorium musi być jedną z wymienionych poniżej.
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Jeden deploy naraz; kolejny zapis w CMS-ie czeka, zamiast wyścigać się z poprzednim.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: withastro/action@v6
+        with:
+          node-version: 22
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
