@@ -1,9 +1,10 @@
 ---
 import { site, telHref } from "@/content"
+import { assetPath, assetUrl, homeUrl } from "@/lib/urls"
 import "@/styles/global.css"
 
-const canonical = new URL(Astro.url.pathname, Astro.site).href
-const ogImage = new URL("/og.jpg", Astro.site).href
+const canonical = homeUrl(Astro.site)
+const ogImage = assetUrl("/og.jpg", Astro.site)
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -36,8 +37,8 @@ const jsonLd = {
     <meta name="description" content={site.meta.description} />
     <link rel="canonical" href={canonical} />
 
-    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
-    <link rel="apple-touch-icon" href="/apple-icon.png" />
+    <link rel="icon" type="image/svg+xml" href={assetPath("/icon.svg")} />
+    <link rel="apple-touch-icon" href={assetPath("/apple-icon.png")} />
     <meta name="theme-color" content="#f5b423" />
 
     <meta property="og:type" content="website" />

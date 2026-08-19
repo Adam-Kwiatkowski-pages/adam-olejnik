@@ -2,6 +2,7 @@
 import { Picture } from "astro:assets"
 import { site, telHref } from "@/content"
 import { resolveImage } from "@/lib/images"
+import { assetPath } from "@/lib/urls"
 import Phone from "@/icons/phone.svg"
 import MapPin from "@/icons/map-pin.svg"
 
@@ -60,7 +61,13 @@ const image = resolveImage(site.hero.image)
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center rounded border border-hero-foreground/30 px-6 py-3.5 text-base font-bold tracking-wide text-hero-foreground uppercase transition-colors hover:bg-hero-foreground/10"
         >
-          <img src="/olx.ico" alt="" width="24" height="24" class="mr-2" />
+          <img
+            src={assetPath("/olx.ico")}
+            alt=""
+            width="24"
+            height="24"
+            class="mr-2"
+          />
           {site.hero.cta_secondary}
         </a>
       </div>
