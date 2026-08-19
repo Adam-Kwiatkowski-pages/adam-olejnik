@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite"
 
 // TODO: Replace placeholder with real domain name
 // TODO: Create public/CNAME file with domain name (without https://)
-const SITE = "https://adam-olejnik.github.io"
+const SITE = "https://adam-kwiatkowski-pages.github.io/adam-olejnik/"
 
 export default defineConfig({
   site: SITE,
