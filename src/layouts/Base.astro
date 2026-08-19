@@ -6,6 +6,8 @@ import "@/styles/global.css"
 const canonical = homeUrl(Astro.site)
 const ogImage = assetUrl("/og.jpg", Astro.site)
 
+const isPreview = Astro.site?.hostname.endsWith("github.io") ?? true
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -14,7 +16,12 @@ const jsonLd = {
   url: canonical,
   image: ogImage,
   telephone: telHref.replace("tel:", ""),
-  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: site.business.address.locality,
+    addressRegion: site.business.address.region,
+    addressCountry: "PL",
+  },
   areaServed: site.business.area
     .replace(/ i okolice$/, "")
     .split(",")
@@ -23,6 +30,18 @@ const jsonLd = {
     "@type": "GeoCoordinates",
     latitude: 52.7120394,
     longitude: 21.0817578,
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: site.services.heading,
+    itemListElement: site.services.items.map((item) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: item.title,
+        description: item.description,
+      },
+    })),
   },
   sameAs: [site.business.maps_url, site.business.olx_url],
 }
@@ -36,6 +55,7 @@ const jsonLd = {
     <title>{site.meta.title}</title>
     <meta name="description" content={site.meta.description} />
     <link rel="canonical" href={canonical} />
+    {isPreview && <meta name="robots" content="noindex, nofollow" />}
 
     <link rel="icon" type="image/svg+xml" href={assetPath("/icon.svg")} />
     <link rel="apple-touch-icon" href={assetPath("/apple-icon.png")} />

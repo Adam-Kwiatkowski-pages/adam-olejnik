@@ -6,6 +6,9 @@ business:
   name: Adam Olejnik
   phone: 502 954 335
   area: Pułtusk, Maków Mazowiecki i okolice
+  address:
+    locality: Pułtusk
+    region: mazowieckie
   maps_url: https://maps.app.goo.gl/Dcn1R1evMLECPYns7
   olx_url: https://www.olx.pl/oferty/uzytkownik/250Tj
 nav:

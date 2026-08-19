@@ -69,6 +69,10 @@ const schema = z.object({
       'business.phone: format "502 954 335" (9 cyfr, spacje co trzy)'
     ),
     area: text("business.area"),
+    address: z.object({
+      locality: text("business.address.locality"),
+      region: text("business.address.region"),
+    }),
     maps_url: url("business.maps_url"),
     olx_url: url("business.olx_url"),
   }),

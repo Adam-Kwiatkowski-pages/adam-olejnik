@@ -33,6 +33,20 @@ content:
             type: string
             required: true
             description: Np. „Pułtusk, Maków Mazowiecki i okolice”.
+          - name: address
+            label: Siedziba
+            type: object
+            description: Nie pojawia się na stronie — trafia do danych, z których
+              Google buduje wizytówkę firmy w wynikach wyszukiwania.
+            fields:
+              - name: locality
+                label: Miejscowość
+                type: string
+                required: true
+              - name: region
+                label: Województwo
+                type: string
+                required: true
           - name: maps_url
             label: Link do wizytówki Google Maps
             type: string
