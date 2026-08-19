@@ -1,7 +1,3 @@
-# Konfiguracja Pages CMS (https://pagescms.org) — panel do edycji treści strony.
-# Klient loguje się na app.pagescms.org kontem GitHub i edytuje content/site.yml
-# przez formularz. Zapis = commit do repozytorium = automatyczna przebudowa strony.
-
 media:
   input: src/assets/images
   output: /src/assets/images

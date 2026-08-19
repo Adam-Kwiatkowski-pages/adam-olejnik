@@ -1,7 +1,5 @@
 name: Deploy
 
-# Uruchamia się przy każdej zmianie w repozytorium — także przy zapisie z Pages CMS.
-# Gałąź domyślna repozytorium musi być jedną z wymienionych poniżej.
 on:
   push:
     branches: [main, master]
@@ -12,7 +10,6 @@ permissions:
   pages: write
   id-token: write
 
-# Jeden deploy naraz; kolejny zapis w CMS-ie czeka, zamiast wyścigać się z poprzednim.
 concurrency:
   group: pages
   cancel-in-progress: false
