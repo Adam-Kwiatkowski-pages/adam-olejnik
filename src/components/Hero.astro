@@ -1,0 +1,73 @@
+---
+import { Picture } from "astro:assets"
+import { site, telHref } from "@/content"
+import { resolveImage } from "@/lib/images"
+import Phone from "@/icons/phone.svg"
+import MapPin from "@/icons/map-pin.svg"
+
+const image = resolveImage(site.hero.image)
+---
+
+<section id="top" class="relative overflow-hidden bg-hero text-hero-foreground">
+  <div class="absolute inset-0">
+    <Picture
+      src={image}
+      alt={site.hero.image_alt}
+      formats={["avif", "webp"]}
+      widths={[640, 1024, 1672]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 h-full w-full object-cover opacity-40"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-hero via-hero/80 to-hero/30"
+    >
+    </div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-32">
+    <div class="max-w-2xl">
+      <a
+        href={site.business.maps_url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mb-5 inline-flex items-center gap-2 rounded bg-primary px-3 py-1 text-xs font-bold tracking-widest text-primary-foreground uppercase"
+      >
+        <MapPin class="h-3.5 w-3.5" />
+        {site.business.area}
+      </a>
+      <h1
+        class="font-heading text-4xl leading-[1.05] font-bold tracking-tight text-balance uppercase md:text-6xl lg:text-7xl"
+      >
+        {site.hero.heading}
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-hero-foreground/80">
+        {site.hero.body}
+      </p>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a
+          href={telHref}
+          class="inline-flex items-center justify-center gap-2 rounded bg-primary px-6 py-3.5 text-base font-bold tracking-wide text-primary-foreground uppercase transition-colors hover:bg-primary/90"
+        >
+          <Phone class="h-5 w-5" />
+          {site.hero.cta_primary}
+        </a>
+        <a
+          href={site.business.olx_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded border border-hero-foreground/30 px-6 py-3.5 text-base font-bold tracking-wide text-hero-foreground uppercase transition-colors hover:bg-hero-foreground/10"
+        >
+          <img src="/olx.ico" alt="" width="24" height="24" class="mr-2" />
+          {site.hero.cta_secondary}
+        </a>
+      </div>
+
+      <p class="mt-6 text-sm tracking-wide text-hero-foreground/60 uppercase">
+        {site.hero.note}
+      </p>
+    </div>
+  </div>
+</section>

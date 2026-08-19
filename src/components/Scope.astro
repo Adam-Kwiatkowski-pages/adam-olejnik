@@ -1,0 +1,39 @@
+---
+import { site } from "@/content"
+import Check from "@/icons/check.svg"
+---
+
+<section id="zakres" class="bg-secondary py-16 md:py-24">
+  <div class="mx-auto max-w-7xl px-4 md:px-6">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div>
+        <p
+          class="mb-2 text-sm font-bold tracking-widest text-primary uppercase"
+        >
+          {site.scope.eyebrow}
+        </p>
+        <h2
+          class="font-heading text-3xl font-bold tracking-tight text-balance text-foreground uppercase md:text-5xl"
+        >
+          {site.scope.heading}
+        </h2>
+        <p class="mt-4 max-w-md leading-relaxed text-muted-foreground">
+          {site.scope.body}
+        </p>
+      </div>
+
+      <ul class="grid gap-3 sm:grid-cols-1">
+        {
+          site.scope.items.map((item) => (
+            <li class="flex items-start gap-3 rounded border border-border bg-card p-4">
+              <span class="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <Check class="h-4 w-4" />
+              </span>
+              <span class="leading-relaxed text-card-foreground">{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

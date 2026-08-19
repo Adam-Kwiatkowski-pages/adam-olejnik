@@ -1,0 +1,51 @@
+---
+import { Picture } from "astro:assets"
+import { site } from "@/content"
+import { resolveImage } from "@/lib/images"
+
+const image = resolveImage(site.transport.image)
+---
+
+<section id="transport" class="bg-foreground py-16 text-background md:py-24">
+  <div class="mx-auto max-w-7xl px-4 md:px-6">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div class="relative h-64 overflow-hidden rounded md:h-96">
+        <Picture
+          src={image}
+          alt={site.transport.image_alt}
+          formats={["avif", "webp"]}
+          widths={[640, 1024]}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          loading="lazy"
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+      </div>
+
+      <div>
+        <p
+          class="mb-2 text-sm font-bold tracking-widest text-background/40 uppercase"
+        >
+          {site.transport.eyebrow}
+        </p>
+        <h2
+          class="font-heading text-3xl font-bold tracking-tight text-balance uppercase md:text-5xl"
+        >
+          {site.transport.heading}
+        </h2>
+        <p class="mt-4 leading-relaxed text-background/80">
+          {site.transport.body}
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-2">
+          {
+            site.transport.materials.map((material) => (
+              <span class="rounded border border-background/20 bg-background/5 px-3 py-1.5 text-sm font-medium text-background/90">
+                {material}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
