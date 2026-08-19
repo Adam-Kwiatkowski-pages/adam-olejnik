@@ -1,0 +1,305 @@
+media:
+  input: src/assets/images
+  output: /src/assets/images
+  categories: [image]
+  extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: site
+    label: Treść strony
+    type: file
+    path: content/site.yml
+    format: yaml
+    icon: pencil
+    fields:
+      - name: business
+        label: Dane kontaktowe
+        type: object
+        description: Najważniejsze dane — zmieniaj tutaj, zmienią się w całej stronie.
+        fields:
+          - name: name
+            label: Nazwa / imię i nazwisko
+            type: string
+            required: true
+          - name: phone
+            label: Numer telefonu
+            type: string
+            required: true
+            description: 'Dokładnie 9 cyfr, spacje co trzy — np. 502 954 335. Inny
+              format zablokuje publikację strony.'
+            options: { minlength: 11, maxlength: 11 }
+          - name: area
+            label: Obszar działania
+            type: string
+            required: true
+            description: Np. „Pułtusk, Maków Mazowiecki i okolice”.
+          - name: maps_url
+            label: Link do wizytówki Google Maps
+            type: string
+            required: true
+          - name: olx_url
+            label: Link do profilu OLX
+            type: string
+            required: true
+
+      - name: meta
+        label: Wizytówka w Google
+        type: object
+        description: Tekst, który widać w wynikach wyszukiwania Google.
+        fields:
+          - name: title
+            label: Tytuł strony
+            type: string
+            required: true
+            description: Maks. 70 znaków — dłuższy Google i tak utnie.
+            options: { maxlength: 70 }
+          - name: description
+            label: Opis strony
+            type: text
+            required: true
+            description: Od 50 do 160 znaków.
+            options: { minlength: 50, maxlength: 160 }
+
+      - name: hero
+        label: Nagłówek strony
+        type: object
+        fields:
+          - name: image
+            label: Zdjęcie w tle
+            type: image
+            required: true
+          - name: image_alt
+            label: Opis zdjęcia
+            type: string
+            required: true
+            description: Opis dla osób niewidomych i dla Google. Np. „Koparka kołowa
+              podczas pracy na placu budowy”.
+          - name: heading
+            label: Główny nagłówek
+            type: string
+            required: true
+          - name: body
+            label: Tekst pod nagłówkiem
+            type: text
+            required: true
+          - name: cta_primary
+            label: Napis na przycisku „zadzwoń”
+            type: string
+            required: true
+          - name: cta_secondary
+            label: Napis na przycisku OLX
+            type: string
+            required: true
+          - name: note
+            label: Dopisek pod przyciskami
+            type: string
+            required: true
+
+      - name: services
+        label: Sekcja „Czym się zajmuję”
+        type: object
+        fields:
+          - name: eyebrow
+            label: Etykieta nad nagłówkiem
+            type: string
+            required: true
+          - name: heading
+            label: Nagłówek sekcji
+            type: string
+            required: true
+          - name: items
+            label: Kafelki z usługami
+            type: object
+            list: { min: 1, max: 6, collapsible: true }
+            fields:
+              - name: title
+                label: Tytuł
+                type: string
+                required: true
+              - name: description
+                label: Opis
+                type: text
+                required: true
+              - name: image
+                label: Zdjęcie
+                type: image
+                required: true
+              - name: image_alt
+                label: Opis zdjęcia
+                type: string
+                required: true
+
+      - name: scope
+        label: Sekcja „Zakres prac”
+        type: object
+        fields:
+          - name: eyebrow
+            label: Etykieta nad nagłówkiem
+            type: string
+            required: true
+          - name: heading
+            label: Nagłówek sekcji
+            type: string
+            required: true
+          - name: body
+            label: Tekst wprowadzający
+            type: text
+            required: true
+          - name: items
+            label: Lista prac
+            type: string
+            list: { min: 1, max: 20 }
+
+      - name: equipment
+        label: Sekcja „Sprzęt”
+        type: object
+        fields:
+          - name: eyebrow
+            label: Etykieta nad nagłówkiem
+            type: string
+            required: true
+          - name: heading
+            label: Nagłówek sekcji
+            type: string
+            required: true
+          - name: body
+            label: Tekst wprowadzający
+            type: text
+            required: true
+          - name: buckets
+            label: Łyżki
+            type: object
+            list: { min: 1, max: 6, collapsible: true }
+            fields:
+              - name: icon
+                label: Ikonka
+                type: select
+                required: true
+                options:
+                  values:
+                    - { name: shovel, label: Łopata }
+                    - { name: cog, label: Koło zębate }
+                    - { name: wrench, label: Klucz }
+              - name: title
+                label: Nazwa
+                type: string
+                required: true
+              - name: description
+                label: Opis
+                type: text
+                required: true
+          - name: callout
+            label: Ramka na dole sekcji
+            type: object
+            fields:
+              - name: heading
+                label: Nagłówek
+                type: string
+                required: true
+              - name: body
+                label: Treść
+                type: text
+                required: true
+
+      - name: transport
+        label: Sekcja „Transport”
+        type: object
+        fields:
+          - name: image
+            label: Zdjęcie
+            type: image
+            required: true
+          - name: image_alt
+            label: Opis zdjęcia
+            type: string
+            required: true
+          - name: eyebrow
+            label: Etykieta nad nagłówkiem
+            type: string
+            required: true
+          - name: heading
+            label: Nagłówek sekcji
+            type: string
+            required: true
+          - name: body
+            label: Tekst
+            type: text
+            required: true
+          - name: materials
+            label: Przewożone materiały
+            type: string
+            list: { min: 1, max: 30 }
+
+      - name: contact
+        label: Sekcja „Kontakt”
+        type: object
+        fields:
+          - name: heading
+            label: Nagłówek sekcji
+            type: string
+            required: true
+          - name: body
+            label: Tekst
+            type: text
+            required: true
+          - name: area_heading
+            label: Nagłówek „Obszar działania”
+            type: string
+            required: true
+          - name: availability_heading
+            label: Nagłówek „Dostępność”
+            type: string
+            required: true
+          - name: availability
+            label: Opis dostępności
+            type: string
+            required: true
+          - name: maps
+            label: Mapy Google
+            type: object
+            list: { min: 1, max: 4, collapsible: true }
+            fields:
+              - name: title
+                label: Nazwa wizytówki
+                type: string
+                required: true
+              - name: embed_url
+                label: Adres osadzenia mapy
+                type: text
+                required: true
+                description: 'Z Google Maps: Udostępnij → Umieść mapę → skopiuj sam
+                  adres z src="…". Musi zaczynać się od
+                  https://www.google.com/maps/embed'
+
+      - name: nav
+        label: Menu na górze strony
+        type: object
+        list: { min: 1, max: 8, collapsible: true }
+        description: Zmiana tych pozycji ma sens tylko razem ze zmianą sekcji strony.
+        fields:
+          - name: label
+            label: Napis w menu
+            type: string
+            required: true
+          - name: href
+            label: Kotwica
+            type: string
+            required: true
+            description: 'Nazwa sekcji poprzedzona krzyżykiem, np. #kontakt'
+
+      - name: footer
+        label: Stopka
+        type: object
+        fields:
+          - name: blurb
+            label: Opis w stopce
+            type: text
+            required: true
+          - name: copyright
+            label: Formuła praw autorskich
+            type: string
+            required: true
+
+settings:
+  content:
+    merge: true
