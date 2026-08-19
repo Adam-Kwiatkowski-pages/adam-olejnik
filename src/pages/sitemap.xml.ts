@@ -1,9 +1,10 @@
 import type { APIRoute } from "astro"
+import { homeUrl } from "@/lib/urls"
 
 export const GET: APIRoute = ({ site }) => {
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>${new URL("/", site).href}</loc></url>
+  <url><loc>${homeUrl(site)}</loc></url>
 </urlset>
 `
   return new Response(body, {
