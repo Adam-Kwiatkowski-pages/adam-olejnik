@@ -1,0 +1,63 @@
+---
+import { site, telHref } from "@/content"
+import "@/styles/global.css"
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href
+const ogImage = new URL("/og.jpg", Astro.site).href
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: site.business.name,
+  description: site.meta.description,
+  url: canonical,
+  image: ogImage,
+  telephone: telHref.replace("tel:", ""),
+  priceRange: "$$",
+  areaServed: site.business.area
+    .replace(/ i okolice$/, "")
+    .split(",")
+    .map((city) => ({ "@type": "City", name: city.trim() })),
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 52.7120394,
+    longitude: 21.0817578,
+  },
+  sameAs: [site.business.maps_url, site.business.olx_url],
+}
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{site.meta.title}</title>
+    <meta name="description" content={site.meta.description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/apple-icon.png" />
+    <meta name="theme-color" content="#f5b423" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content={site.business.name} />
+    <meta property="og:title" content={site.meta.title} />
+    <meta property="og:description" content={site.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(jsonLd)}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
